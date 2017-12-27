@@ -5,8 +5,11 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 def showOpenCVImagesGrid(images, x, y, titles=None, axis="on"):
+    """
+    Show multiple images, you can provide ervey image titles.
+    @param images array of images
+    """
     fig = plt.figure()
     i = 1
 
