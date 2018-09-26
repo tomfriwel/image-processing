@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def showOpenCVImagesGrid(images, x, y, titles=None, axis="on"):
     """
     Show multiple images, you can provide ervey image titles.
@@ -46,3 +47,26 @@ def showOpenCVImagesGrid(images, x, y, titles=None, axis="on"):
         plt.imshow(copy, cmap=cmap)
         i += 1
     plt.show()
+
+
+def getSinglePlt(image, title=None, axis="on"):
+    fig = plt.figure()
+
+    copy = image.copy()
+    channel = len(copy.shape)
+
+    cmap = None
+    if channel == 2:
+        cmap = "gray"
+    elif channel == 3:
+        copy = cv2.cvtColor(copy, cv2.COLOR_BGR2RGB)
+    elif channel == 4:
+        copy = cv2.cvtColor(copy, cv2.COLOR_BGRA2RGBA)
+
+    fig.add_subplot(1, 1, 1)
+
+    plt.title(title)
+    plt.axis(axis)
+    im = plt.imshow(copy, cmap=cmap)
+    # plt.show()
+    return [plt, fig, im]
