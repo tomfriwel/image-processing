@@ -57,3 +57,5 @@ bar = utils.plot_colors(hist, clt.cluster_centers_)
 # plt.imshow(bar)
 # plt.show()
 util.showOpenCVImagesGrid([showimage, small, bar], 2, 2, axis="off")
+
+# command $ python color-cluster/colorCluster.py -i ./images/atey-ghailan-167.jpg -c 10
